@@ -2,26 +2,26 @@ let car = {
     producer: "BMW",
     model: "i4 M50",
     productionYear: 2021,
-    averageSpeed: 100,
-
-    //1
-    showInfo() {
-        alert(`Car: ${this.producer} ${this.model}, production year - ${this.productionYear}, average speed - ${this.averageSpeed}`);
-    },
-
-    //2
-    calculateDrivingTime(distance) {
-        let drivingTime = distance / this.averageSpeed;
-        return drivingTime + Math.floor(drivingTime / 4);
-    }
-}
+    averageSpeed: 100
+};
 
 //1
-car.showInfo();
+showInfo(car);
 
 //2
 let distance = +prompt("Enter distance to calculate driving time");
 if (Number.isFinite(distance))
-    alert(`The car needs ${car.calculateDrivingTime(distance)} hours to drive ${distance} km`);
+    alert(`The car needs ${calculateDrivingTime(car, distance)} hours to drive ${distance} km`);
 else
     alert("Invalid distance");
+
+//1
+function showInfo(car) {
+    alert(`Car: ${car.producer} ${car.model}, production year - ${car.productionYear}, average speed - ${car.averageSpeed}`);
+}
+
+//2
+function calculateDrivingTime(car, distance) {
+    let drivingTime = distance / car.averageSpeed;
+    return drivingTime + Math.floor(drivingTime / 4);
+}
